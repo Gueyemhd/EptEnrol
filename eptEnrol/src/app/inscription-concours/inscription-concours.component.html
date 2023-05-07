@@ -93,23 +93,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="name">date de naissance</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="date" name="date-naiss">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Lieu de naissance</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" name="lieu-naiss">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-row p-t-20">
-                        <div class="form-row">
-                            <div class="name">date de naissance</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="date" name="date-naiss">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Lieu de naissance</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="lieu-naiss">
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-row">
                             <div class="name">Centre d'examen</div>
                             <div class="value">
@@ -176,38 +177,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngIf="selectedValue === 'option2'">
-                            <div class="form-row">
-                                <div class="name">Série</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        <input class="input--style-5" type="text" name="serie2" placeholder="Série">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="name">Année d'obtention du Bac</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        <input class="input--style-5" type="text" name="anneeBac" placeholder="Année d'obtention du Bac">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="name">Mention</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        <input class="input--style-5" type="email" name="email" placeholder="Mention au Bac">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                    </div>
+                    <div *ngIf="selectedValue === 'option2'">
                         <div class="form-row">
-                            <div class="name">nationnalité</div>
+                            <div class="name">Année d'obtention du Bac</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="nationnalite">
+                                    <input class="input--style-5" type="number" name="anneeBac" placeholder="Année d'obtention du Bac" min="2018" max="2023">
                                 </div>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="form-row" *ngIf="selectedValue === 'option2'">
+                        <div class="name">Mention</div>
+                        <div class="value">
+                            <select class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);">
+                                <option selected="selected" disabled>Choose mention</option>
+                                <option value="passable">Passable</option>
+                                <option value="abien">Assez bien</option>
+                                <option value="bien">Bien</option>
+                                <option value="tbien">Très Bien</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">nationnalité</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" name="nationnalite">
                             </div>
                         </div>
                     </div>
