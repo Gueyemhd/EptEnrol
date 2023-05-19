@@ -16,12 +16,10 @@ export class ListeCandidatsComponent implements OnInit{
   ngOnInit(): void {
   this._api.getDossierEtudies().subscribe((response: candidats_infos[]) => {
     this.candsEtudies = response;
-    // console.log(this.candsEtudies);
   });
 
   this._api.getInfoCandidat().subscribe((response: etatDossier[]) => {
     this.candsAetudier = response
-    // console.log(this.candsAetudier);
   });
 }
 }
