@@ -10,6 +10,7 @@ import { AEtudierComponent } from './a-etudier/a-etudier.component';
 import { DejaEtudieComponent } from './deja-etudie/deja-etudie.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
+import { HomeComponent } from './home/home.component';
 // import { FormsModule } from '@angular/forms';
 
 
@@ -24,7 +25,8 @@ import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
     AEtudierComponent,
     DejaEtudieComponent,
     SignUpPageComponent,
-    EtatDossierComponent
+    EtatDossierComponent,
+    HomeComponent
 
   ],
   imports: [

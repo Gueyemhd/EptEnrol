@@ -8,14 +8,16 @@ import { AEtudierComponent } from './a-etudier/a-etudier.component';
 import { DejaEtudieComponent } from './deja-etudie/deja-etudie.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'register', component: InscriptionConcoursComponent },
-  { path: 'user', component: UserInfosComponent },
+  { path: 'user/:email', component: UserInfosComponent },
   { path: 'listeCandidats', component: ListeCandidatsComponent},
   { path: 'dejaEtudies', component: DejaEtudieComponent},
   { path: 'aEtudier', component: AEtudierComponent},
-  { path: '', component: SignUpPageComponent},
+  { path: 'login', component: SignUpPageComponent},
   { path: 'etat', component: EtatDossierComponent},
 
 ];

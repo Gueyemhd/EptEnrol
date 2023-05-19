@@ -90,7 +90,7 @@
                 <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                     <div class="d-flex justify-content-between">
                         <strong class="text-gray-dark">{{ cand.prenom }}  {{ cand.nom }}</strong>
-                        <a class="btn btn-outline-primary" href="#">Etudier</a>
+                        <a class="btn btn-outline-primary" [routerLink]="['/user', cand.email]">Etudier</a>
                     </div>
                     <strong>Email: </strong><span class="">{{ cand.email }}</span> <br> <strong>Etat du dossier: </strong> <span class="text-warning">{{ cand.etat_dossier }}</span>
                 </div>

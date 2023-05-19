@@ -59,8 +59,8 @@
                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                                 <img src="../../assets/img/ava-neutre.png"
                                     alt="Avatar" class="img-fluid my-5" style="width: 80px; border-radius: 40%;" />
-                                <h6>{{validation[0].prenom}} {{validation[0].nom}} | <span style="color:rgb(216, 173, 115)">Candidat Officiel</span></h6>
-                                <p style="color: black;">Dossier n°{{validation[0].numero_dossier}}</p>
+                                <h6>{{candidat.prenom}} {{candidat.nom}} | <span style="color:rgb(216, 173, 115)">Candidat Officiel</span></h6>
+                                <p style="color: black;">Dossier n°{{candidat.numero_dossier}}</p>
                             </div>
                             <div class="col-md-12">
                                 <div class="card-body p-4">
@@ -69,43 +69,43 @@
                                     <div class="row pt-1">
                                         <div class="col-6 mb-3">
                                             <h6>Email</h6>
-                                            <p class="text-muted">{{validation[0].email}}</p>
+                                            <p class="text-muted">{{candidat.email}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Téléphone</h6>
-                                            <p class="text-muted">{{validation[0].tel_candidat}}</p>
+                                            <p class="text-muted">{{candidat.tel_candidat}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Etablissement</h6>
-                                            <p class="text-muted">{{validation[0].etablissement}}</p>
+                                            <p class="text-muted">{{candidat.etablissement}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Téléphone Parent</h6>
-                                            <p class="text-muted">{{validation[0].tel_parent}}</p>
+                                            <p class="text-muted">{{candidat.tel_parent}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Série</h6>
-                                            <p class="text-muted">{{validation[0].serie}}</p>
+                                            <p class="text-muted">{{candidat.serie}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Date de naissance</h6>
-                                            <p class="text-muted">{{validation[0].date_naissance}}</p>
+                                            <p class="text-muted">{{candidat.date_naissance}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Lieu de naissance</h6>
-                                            <p class="text-muted">{{validation[0].lieu_naissance}}</p>
+                                            <p class="text-muted">{{candidat.lieu_naissance}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Nationalité</h6>
-                                            <p class="text-muted">{{validation[0].nationalite}}</p>
+                                            <p class="text-muted">{{candidat.nationalite}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Option</h6>
-                                            <p class="text-muted">{{validation[0].option}}</p>
+                                            <p class="text-muted">{{candidat.option}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6>Centre d'examen</h6>
-                                            <p class="text-muted">{{validation[0].centre_examen}}</p>
+                                            <p class="text-muted">{{candidat.centre_examen}}</p>
                                         </div>
                                         <div class="col-6 mb-3">
                                             <h6><a href="" style="color: rgba(46, 201, 211, 1);">Bulletins</a></h6>
