@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-inscription-concours',
   templateUrl: './inscription-concours.component.html',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class InscriptionConcoursComponent {
   selectedValue = 'string';
+
+
+  constructor() {}
+
+ 
 }

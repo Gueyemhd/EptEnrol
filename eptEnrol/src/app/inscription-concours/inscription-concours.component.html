@@ -5,20 +5,20 @@
                 <h2 class="title">Formulaire d'inscription au concours EPT</h2>
             </div>
             <div class="card-body">
-                <form method="POST">
+                <form method="POST" action="http://127.0.0.1:5000/inscription" enctype="multipart/form-data">
                     <div class="form-row m-b-55">
                         <div class="name">Name</div>
                         <div class="value">
                             <div class="row row-space">
                                 <div class="col-6">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="first_name">
+                                        <input required class="input--style-5" type="text" name="first_name" re>
                                         <label class="label--desc">Prénom</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="last_name">
+                                        <input required class="input--style-5" type="text" name="last_name">
                                         <label class="label--desc">Nom</label>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                         <div class="name">adresse</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" name="adresse" placeholder="Entrer votre adresse">
+                                <input required class="input--style-5" type="text" name="adresse" placeholder="Entrer votre adresse">
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="name">Email</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="email" name="email" placeholder="example@xyz.abc">
+                                <input required class="input--style-5" type="email" name="email" placeholder="example@xyz.abc">
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
 
                                 <div class="col-9">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="phone-candidat" placeholder="Saisissez votre numéro de téléphone">
+                                        <input required class="input--style-5" type="text" name="phone-candidat" placeholder="Saisissez votre numéro de téléphone">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
 
                                 <div class="col-9">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="phone-parent" placeholder="Saisissez le numéro de téléphone de votre parent ou tuteur">
+                                        <input required class="input--style-5" type="text" name="phone-parent" placeholder="Saisissez le numéro de téléphone de votre parent ou tuteur">
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                         <div class="name">Etablissement</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" name="etablissement">
+                                <input required class="input--style-5" type="text" name="etablissement">
                             </div>
                         </div>
                     </div>
@@ -80,13 +80,13 @@
                         <div class="value">
                             <div class="input-group">
                                 <div class="rs-select2 js-select-simple select--no-search ">
-                                    <select class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);">
+                                    <select required class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);" name="serie">
                                         <option selected="selected" disabled>Choose serie</option>
-                                        <option value="1">Série S1</option>
-                                        <option value="2">Série S2</option>
-                                        <option value="3">Série S3</option>
-                                        <option value="3">Série T1</option>
-                                        <option value="3">Série T2</option>
+                                        <option value="Série S1">Série S1</option>
+                                        <option value="Série S2">Série S2</option>
+                                        <option value="Série S3">Série S3</option>
+                                        <option value="Série T1">Série T1</option>
+                                        <option value="Série T2">Série T2</option>
                                     </select>
                                     <div class="select-dropdown"></div>
                                 </div>
@@ -97,7 +97,7 @@
                         <div class="name">date de naissance</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="date" name="date-naiss">
+                                <input required class="input--style-5" type="date" name="date-naiss">
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <div class="name">Lieu de naissance</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" name="lieu-naiss">
+                                <input required class="input--style-5" type="text" name="lieu-naiss">
                             </div>
                         </div>
                     </div>
@@ -116,28 +116,28 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search ">
-                                        <select class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);">
+                                        <select required class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);" name="centre">
                                             <option selected="selected" disabled>Choose center</option>
-                                            <option value="d">Dakar(fac medecine UCAD)</option>
-                                            <option value="e">Lycée S. Lymamoulaye</option>
-                                            <option value="f">Lycée A. Sadji Rufisque</option>
-                                            <option value="g">Lycée Keur Massar</option>
-                                            <option value="h">LTAB Diourbel</option>
-                                            <option value="i">CND Fatick</option>
-                                            <option value="j">WND Kaolack</option>
-                                            <option value="k">LMS Louga</option>
-                                            <option value="l">LAS Tivaoune</option>
-                                            <option value="m">LM Matam</option>
-                                            <option value="n">LDD Mbour</option>
-                                            <option value="o">LAP Saint Louis</option>
-                                            <option value="p"> LMCM Tambacounda</option>
-                                            <option value="q">LMB Kédougou</option>
-                                            <option value="r">LMS Thiès</option>
-                                            <option value="s"> LDJZ Ziguinchor</option>
-                                            <option value="t">LEBND Podor</option>
-                                            <option value="e">LAMB Kolda</option>
-                                            <option value="f">Lycée Bambey</option>
-                                            <option value="g">L. Ibou Diallo Sédhiou</option>
+                                            <option value="Dakar(fac medecine UCAD)">Dakar(fac medecine UCAD)</option>
+                                            <option value="Lycée S. Lymamoulaye">Lycée S. Lymamoulaye</option>
+                                            <option value="Lycée A. Sadji Rufisque">Lycée A. Sadji Rufisque</option>
+                                            <option value="Lycée Keur Massar">Lycée Keur Massar</option>
+                                            <option value="LTAB Diourbel">LTAB Diourbel</option>
+                                            <option value="CND Fatick">CND Fatick</option>
+                                            <option value="WND Kaolack">WND Kaolack</option>
+                                            <option value="LMS Louga">LMS Louga</option>
+                                            <option value="LAS Tivaoune">LAS Tivaoune</option>
+                                            <option value="LM Matam">LM Matam</option>
+                                            <option value="LDD Mbour">LDD Mbour</option>
+                                            <option value="LAP Saint Louis">LAP Saint Louis</option>
+                                            <option value="LMCM Tambacounda"> LMCM Tambacounda</option>
+                                            <option value="LMB Kédougou">LMB Kédougou</option>
+                                            <option value="LMS Thiès">LMS Thiès</option>
+                                            <option value="LDJZ Ziguinchor"> LDJZ Ziguinchor</option>
+                                            <option value="LEBND Podor">LEBND Podor</option>
+                                            <option value="LAMB Kolda">LAMB Kolda</option>
+                                            <option value="Lycée Bambey">Lycée Bambey</option>
+                                            <option value="L. Ibou Diallo Sédhiou">L. Ibou Diallo Sédhiou</option>
                                         </select>
                                     </div>
                                 </div>
@@ -148,13 +148,13 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search ">
-                                        <select class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);">
+                                        <select required class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);" name="option">
                                             <option selected="selected" disabled>Choose option</option>
-                                            <option value="a">Génie Civil</option>
-                                            <option value="b">Génie Electromécanique</option>
-                                            <option value="c">Génie Aéronautique</option>
-                                            <option value="d">Génie Informatique et Télécommunication</option>
-                                            <option value="c">Génie Industrielle</option>
+                                            <option value="Génie Civil">Génie Civil</option>
+                                            <option value="Génie Electromécanique">Génie Electromécanique</option>
+                                            <option value="Génie Aéronautique">Génie Aéronautique</option>
+                                            <option value="Génie Informatique et Télécommunication">Génie Informatique et Télécommunication</option>
+                                            <option value="Génie Industrielle">Génie Industrielle</option>
                                         </select>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                             <div class="name">Année d'obtention du Bac</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="anneeBac" placeholder="Année d'obtention du Bac" min="2018" max="2023">
+                                    <input required class="input--style-5" type="number" name="anneeBac" placeholder="Année d'obtention du Bac" min="2018" max="2023">
                                 </div>
                             </div>
                         </div>   
@@ -192,12 +192,12 @@
                     <div class="form-row" *ngIf="selectedValue === 'option2'">
                         <div class="name">Mention</div>
                         <div class="value">
-                            <select class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);">
+                            <select required class="form-select" aria-label="Default select example" style="background-color: rgba(229,229,229,255);" name="mention">
                                 <option selected="selected" disabled>Choose mention</option>
-                                <option value="passable">Passable</option>
-                                <option value="abien">Assez bien</option>
-                                <option value="bien">Bien</option>
-                                <option value="tbien">Très Bien</option>
+                                <option value="Passable">Passable</option>
+                                <option value="Assez bien">Assez bien</option>
+                                <option value="Bien">Bien</option>
+                                <option value="Très bien">Très Bien</option>
                             </select>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                         <div class="name">nationnalité</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" name="nationnalite">
+                                <input required class="input--style-5" type="text" name="nationnalite">
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                         <div class="name">Bulletins</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="file" name="bulletins">
+                                <input required class="input--style-5" type="file" name="bulletins">
                                 <label *ngIf="selectedValue === 'option1'">Scanner vos Bulletins de notes (1er semestre de la classe de terminale et les deux semestres des classes de Seconde et Première)</label>
                                 <label *ngIf="selectedValue === 'option2'">Scanner vos Bulletins de notes (Deux semestres des classes de Seconde, Première et Termiale)</label>
                             </div>
@@ -223,7 +223,7 @@
                         <div class="name">Diplôme du Bac</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="file" name="diplome">
+                                <input required class="input--style-5" type="file" name="diplome" >
                                 <label>Scanner la photocopie légalisée de votre diplôme du Bac</label>
                             </div>
                         </div>
@@ -232,13 +232,13 @@
                         <div class="name">Relevé de notes du Bac</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="file" name="releve" style="border:none">
+                                <input required class="input--style-5" type="file" name="releve" style="border:none">
                                 <label>Scanner la photocopie légalisée de votre Relevé de notes du Bac</label>
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; ">
-                        <button class="btn btn--radius-2 btn--green " type="submit ">Register</button>
+                        <button class="btn btn--radius-2 btn--green" type="submit">Register</button>
                     </div>
                 </form>
             </div>

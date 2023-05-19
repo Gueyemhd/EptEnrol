@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInfosComponent } from './user-infos/user-infos.component';
@@ -8,6 +9,11 @@ import { InscriptionConcoursComponent } from './inscription-concours/inscription
 import { AEtudierComponent } from './a-etudier/a-etudier.component';
 import { DejaEtudieComponent } from './deja-etudie/deja-etudie.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
+// import { FormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,11 +23,15 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
     InscriptionConcoursComponent,
     AEtudierComponent,
     DejaEtudieComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    EtatDossierComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    // FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

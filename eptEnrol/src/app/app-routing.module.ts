@@ -7,14 +7,17 @@ import { InscriptionConcoursComponent } from './inscription-concours/inscription
 import { AEtudierComponent } from './a-etudier/a-etudier.component';
 import { DejaEtudieComponent } from './deja-etudie/deja-etudie.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
 
 const routes: Routes = [
-  { path: '', component: InscriptionConcoursComponent },
+  { path: 'register', component: InscriptionConcoursComponent },
   { path: 'user', component: UserInfosComponent },
   { path: 'listeCandidats', component: ListeCandidatsComponent},
   { path: 'dejaEtudies', component: DejaEtudieComponent},
   { path: 'aEtudier', component: AEtudierComponent},
-  { path: 'connexion', component: SignUpPageComponent}
+  { path: '', component: SignUpPageComponent},
+  { path: 'etat', component: EtatDossierComponent},
+
 ];
 
 @NgModule({
