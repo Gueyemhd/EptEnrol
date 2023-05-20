@@ -1,0 +1,11 @@
+{
+  "name": "projet_api",
+  "version": "1.0.0",
+  "description": "Un repository pour construire une api et une interface destinée à la gestion des inscriptions d'étudiants au concours EPT et à la validation des candidatures au niveau de l'administration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
