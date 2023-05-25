@@ -67,14 +67,14 @@
                 <div class="pb-3 mb-0 w-100 border-bottom">
                     <div class="d-flex justify-content-between">
                         <strong class="d-block text-gray-dark">{{ cand.prenom }}  {{ cand.nom }}</strong>
-                        <a class="btn btn-outline-primary" href="#">Voir</a>
+                        <a class="btn btn-outline-primary" [routerLink]="['/user1', cand.email]">Voir</a>
                     </div>
                     <strong>Email: </strong><span class="">{{ cand.email }}</span> <br> <strong>Etat du dossier: </strong> <span style="color: red;" [class.text-success]="cand.etat_dossier == etat">{{ cand.etat_dossier }}</span>
                 </div>
             </div>
 
             <small class="d-block text-end mt-3">
-                <a class="btn btn-primary" routerLink="/dejaEtudies">Tous les candidats </a>
+                <a class="btn btn-primary" routerLink="/dejaEtudies">Voir tous </a>
             </small>
         </div>
 

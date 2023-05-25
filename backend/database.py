@@ -1,16 +1,18 @@
-from flask import Flask, jsonify, request, redirect
+from flask import Flask, jsonify, request, redirect, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_bcrypt import Bcrypt
 import os
 
 #UPLOAD_FOLDER = 'uploads'
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True, allow_headers=['Content-Type'])
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registrationDb.db'
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 
 class Candidat(db.Model):
     __tablename__ = 'Candidat'
@@ -19,6 +21,13 @@ class Candidat(db.Model):
     nom = db.Column(db.String(30))
     email = db.Column(db.String(40), unique= True)
     dossier = db.relationship('Dossier', uselist=False, backref='candidat', lazy=True)
+
+
+class User(db.Model):
+    __tablename__ = 'User'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column(db.String(50), unique=True)
+    password_hash = db.Column(db.String(100))
    
 
 
@@ -143,7 +152,7 @@ def register():
         db.session.commit()
         
 
-        return redirect('http://localhost:4200')
+        return redirect('http://localhost:4200/sign-up')
     return  redirect('http://localhost:4200/inscription')
 
 
@@ -203,6 +212,42 @@ with app.app_context():
         return jsonify(results)
     
 
+    @app.route('/all', methods=['GET'])
+    def get_all_dossierAetudier2():
+        candidats = Candidat.query.join(Dossier).join(ficheCandidature).join(Document).all()
+
+        results = []
+        for candidat in candidats:
+            result = {
+                'numero_candidat': candidat.numero_candidat,
+                'prenom': candidat.prenom,
+                'nom': candidat.nom,
+                'email': candidat.email,
+                'numero_dossier': candidat.dossier.numero_dossier,
+                'etat_dossier': candidat.dossier.etat_dossier,
+                'paiement': candidat.dossier.paiement,
+                'numero_fiche': candidat.dossier.fiche.numero_fiche,
+                'adresse': candidat.dossier.fiche.adresse,                
+                'tel_candidat': candidat.dossier.fiche.tel_candidat,
+                'tel_parent': candidat.dossier.fiche.tel_parent,
+                'etablissement': candidat.dossier.fiche.etablissement,
+                'serie': candidat.dossier.fiche.serie,
+                'date_naissance': candidat.dossier.fiche.date_naissance,
+                'lieu_naissance': candidat.dossier.fiche.lieu_naissance,
+                'nationalite': candidat.dossier.fiche.nationalite,
+                'option': candidat.dossier.fiche.option,
+                'centre_examen': candidat.dossier.fiche.centre_examen,
+                'annee_obtention_bac': candidat.dossier.fiche.annee_obtention_bac,
+                'mention_bac': candidat.dossier.fiche.mention_bac,
+                'numero_document': candidat.dossier.document.numero_document,
+                'diplome_path': candidat.dossier.document.diplome_path,
+                'bulletins_path': candidat.dossier.document.bulletins_path,
+                'releve_path': candidat.dossier.document.releve_path
+            }
+            results.append(result)
+        return jsonify(results)
+    
+
     @app.route('/etudies', methods=['GET'])
     def get_all_dossieretudies1():
         candidats = Candidat.query.join(Dossier).filter((Dossier.etat_dossier.like('validé')) | (Dossier.etat_dossier.like('non validé'))).all()
@@ -218,6 +263,92 @@ with app.app_context():
             }
             results.append(result)
         return jsonify(results)
+    
+    @app.route('/register', methods=['POST'])
+    def register1():
+        details = request.form
+        email = details['mail']
+        password = details['password']
+        c_password = details['password1']
+
+        if User.query.filter_by(email=email).first():
+            return redirect('http://localhost:4200/sign-up')
+        
+        if password == c_password:
+            password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+            user = User(email=email, password_hash=password_hash)
+            db.session.add(user)
+            db.session.commit()
+        else:
+             return redirect('http://localhost:4200/sign-up')
+
+
+        return redirect('http://localhost:4200/login')
+    
+
+    @app.route('/update-database', methods=['POST'])
+    def valider():
+        details = request.get_json()
+        email = details['email']
+        candidat = Candidat.query.join(Dossier). filter(Candidat.email==email).all()
+        candidat[0].dossier.etat_dossier = 'Validé'
+        db.session.commit()
+      
+
+        
+   
+        return jsonify({'message': 'Succès'})
+    
+
+    @app.route('/update-database1', methods=['POST'])
+    def valider1():
+        details = request.get_json()
+        email = details['email']
+        candidat = Candidat.query.join(Dossier). filter(Candidat.email==email).all()
+        candidat[0].dossier.etat_dossier = 'Non validé'
+        db.session.commit()
+      
+
+        
+   
+        return jsonify({'message': 'Succès'})
+    
+    @app.route('/login', methods=['POST'])
+    def login():
+        mail_admin = 'admin@gmail.com'
+        details = request.form
+        email = details['mail']
+        password = details['password']
+
+        user = User.query.filter_by(email=email).first()
+
+        if not user or not bcrypt.check_password_hash(user.password_hash, password):
+            return redirect('http://localhost:4200/login')
+        
+        candidat = Candidat.query.join(Dossier).join(ficheCandidature).filter(Candidat.email == email).all()
+        print(candidat)
+        if not candidat and email != mail_admin:
+            return redirect('http://localhost:4200/login')
+        elif not candidat and email == mail_admin:
+            return redirect('http://localhost:4200/listeCandidats')
+        prenom = candidat[0].prenom
+        nom = candidat[0].nom
+        serie = candidat[0].dossier.fiche.serie
+        etat = candidat[0].dossier.etat_dossier
+       
+        return redirect('http://localhost:4200/etat?prenom={}&nom={}&serie={}&etat={}&email={}'.format(prenom, nom, serie, etat, email))
+    
+
+    @app.route('/fichier-pdf', methods=['POST'])
+    def fichier_pdf():
+        path = request.args.get('chemin')
+        
+
+        return send_file(str(path), mimetype='application/pdf')
+
+        
+    
+   
 
     
 

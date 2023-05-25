@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { flaskdataService, etatDossier } from '../flaskdata.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-etat-dossier',
@@ -8,14 +9,27 @@ import { flaskdataService, etatDossier } from '../flaskdata.service';
 })
 export class EtatDossierComponent implements OnInit {
   infoCandidat !: etatDossier[];
-  constructor( private _api:flaskdataService){}
+  nom !: string;
+  prenom !: string;
+  email !: string;
+  serie !: string;
+  etat !: string;
+  
+
+
+  constructor( private _api:flaskdataService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
 
-  this._api.getInfoCandidat().subscribe((response: etatDossier[]) => {
-    this.infoCandidat = response;
-    //this.infoCandidat = response.reverse().slice(0, 5);
-  
+
+  this.route.queryParams.subscribe(params => {
+    this.nom = params['nom'];
+    this.prenom = params['prenom'];
+    this.email = params['email'];
+    this.serie = params['serie']; 
+    this.etat = params['etat'];
+    
+    
   });
 }
 

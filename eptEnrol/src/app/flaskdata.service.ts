@@ -48,6 +48,7 @@ export class flaskdataService {
   urlApiAetudier ="http://127.0.0.1:5000/infoCandidat"
   urlApiEtudies = "http://127.0.0.1:5000/etudies"
   urlApiValidation = "http://127.0.0.1:5000/validation"
+  urlApiAll = "http://127.0.0.1:5000/all"
 
   constructor(private _http : HttpClient) { }
   
@@ -57,6 +58,10 @@ export class flaskdataService {
 
   getDossierEtudies():Observable <candidats_infos[]> {
     return this._http.get<candidats_infos[]>(`${this.urlApiEtudies}`);
+  }
+
+  getAllDossierEtudies():Observable <candidats_infos[]> {
+    return this._http.get<candidats_infos[]>(`${this.urlApiAll}`);
   }
 
   getInfosValidation():Observable <candidats_infos[]>{

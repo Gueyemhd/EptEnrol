@@ -9,16 +9,22 @@ import { DejaEtudieComponent } from './deja-etudie/deja-etudie.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { EtatDossierComponent } from './etat-dossier/etat-dossier.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { UserInfoValideComponent } from './user-info-valide/user-info-valide.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: InscriptionConcoursComponent },
   { path: 'user/:email', component: UserInfosComponent },
+  { path: 'user1/:email', component: UserInfoValideComponent },
   { path: 'listeCandidats', component: ListeCandidatsComponent},
   { path: 'dejaEtudies', component: DejaEtudieComponent},
   { path: 'aEtudier', component: AEtudierComponent},
   { path: 'login', component: SignUpPageComponent},
   { path: 'etat', component: EtatDossierComponent},
+  { path: 'sign-up', component: RegisterComponent},
+ 
 
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { flaskdataService, candidats_infos, etatDossier } from '../flaskdata.service';
 
 
+
 @Component({
   selector: 'app-liste-candidats',
   templateUrl: './liste-candidats.component.html',
@@ -11,6 +12,8 @@ export class ListeCandidatsComponent implements OnInit{
   etat = "Validé"
   candsAetudier !: etatDossier[];
   candsEtudies !: candidats_infos[];
+  vide !: string;
+ 
   constructor( private _api:flaskdataService){}
 
   ngOnInit(): void {
@@ -21,5 +24,8 @@ export class ListeCandidatsComponent implements OnInit{
   this._api.getInfoCandidat().subscribe((response: etatDossier[]) => {
     this.candsAetudier = response
   });
+
+  
 }
+
 }

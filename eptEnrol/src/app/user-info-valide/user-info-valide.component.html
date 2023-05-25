@@ -107,26 +107,13 @@
                                             <h6>Centre d'examen</h6>
                                             <p class="text-muted">{{candidat.centre_examen}}</p>
                                         </div>
-                                        <form class="col-6 mb-3" action={{path}} method="POST">
-                                            <button type="submit" style="color: rgba(46, 201, 211, 1);">Bulletins</button>
-                                        </form>                                       
+                                        <div class="col-6 mb-3">
+                                            <h6><a href="" style="color: rgba(46, 201, 211, 1);">Bulletins</a></h6>
+                                        </div>                                       
                                     </div>
                                     <!-- ----------------------------->
                                     <hr class="mt-0 mb-4">
-                                    <div class="row pt-1">
-                                        <div class="col-6 mb-3" *ngIf="!statut">
-                                            <button type="button" class="btn btn-outline-danger btn-floating" (click)="updateDatabase1(candidat.email)">
-                                                Rejeter
-                                              </button>
-                                        </div>
-                                        <div class="col-6 mb-3" *ngIf="!statut">
-                                            <button type="button" class="btn btn-success btn-floating" (click)="updateDatabase(candidat.email)">
-                                                Valider
-                                        
-                                              </button>
-                                        </div>
-                                        <div *ngIf="statut" [class.candidature]="statut==etat" [class.candidature1]="statut!=etat">Candidature {{statut}}</div>
-                                    </div>
+                
                                 </div>
                             </div>
                         </div>
